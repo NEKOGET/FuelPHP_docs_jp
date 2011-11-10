@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
 	<meta charset="UTF-8">	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
 					<p>
 						<span id="search_clear">&nbsp;</span>
 						<input type="submit" name="search_submit" id="search_submit" value="search" />
-						<input type="text" value="" id="search_input" name="search_input" />						
+						<input type="text" value="" id="search_input" name="search_input" />
 					</p>
 				</form>
 			</div>
@@ -43,19 +43,19 @@
 		
 		<div id="main">
 			
-			<h2>Requirements</h2>
+			<h2>必要条件</h2>
 			<h5 id="web_server">Web Server</h5>
 			<ul>
-				<li>Any web server.  Fuel has been tested on Apache, IIS and Nginx.</li>
-				<li>Works on all major operating systems including *nix and Windows.</li>
+				<li>任意のWebサーバ。Fuelは、Apache、IISとnginxの上でテストされています。</li>
+				<li>*nixとWindowsを含むすべての主要オペレーティングシステム上で動作します。</li>
 			</ul>
 			<h5 id="php_version">PHP Version</h5>
 			<ul>
-				<li>Version 5.3 or greater is required.</li>
+				<li>バージョン5.3以降が必要です。</li>
 			</ul>
 			<h5 id="php_extensions">PHP Extensions</h5>
 			<p>
-				Fuel uses functionality that PHP defines as "extensions". To avoid any possible compatibility issues, Fuel only uses extensions that
+				Fuelは、PHPが"extensions"として定義されている機能を使用しています。 To avoid any possible compatibility issues, Fuel only uses extensions that
 				are part of the PHP code as documented on the <a href="http:://php.net">PHP website</a>. If extensions are used that are part of the
 				PECL repository (which need to be installed manually by a system administrator), Fuel will use them if present, and work around it if not.
 			</p>
@@ -71,19 +71,19 @@
 						<td>fileinfo</td>
 						<td>Upload</td>
 						<td><a href="http://php.net/manual/en/book.fileinfo.php">Documentation</a>.<br />
-						Note that on Windows platforms, a manual installation of a DLL might be needed.</td>
+						Windowsプラットフォームでは、DLLの手動インストールが必要になる可能性があることに注意してください。</td>
 					</tr>
 					<tr>
 						<td>mbstring</td>
 						<td>n/a</td>
 						<td><a href="http://php.net/manual/en/book.mbstring.php">Documentation</a>.<br />
-						If not present, the framework has no multibyte support. You can check the MBSTRING constant to see if your installation has multibyte support enabled.</td>
+						存在しない場合、フレームワークはマルチバイトをサポートしていません。インストールされたシステムが有効になってマルチバイトをサポートしているかどうかを確認するために一定のMBSTRINGを確認することができます。</td>
 					</tr>
 					<tr>
 						<td>mcrypt</td>
 						<td>Crypt</td>
 						<td><a href="http://php.net/manual/en/book.mcrypt.php">Documentation</a>.<br />
-						If not present, PHPSecLib is used to emulate it's functionality.</td>
+						存在しない場合、PHPSecLibはそれの機能をエミュレートするために使用されます。</td>
 					</tr>
 				</tbody>
 			</table>
