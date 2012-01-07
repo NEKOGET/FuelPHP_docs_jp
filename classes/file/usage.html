@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
 	<meta charset="UTF-8">	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 		var class_prefix = "File::";
 	</script>
 	<script src="./../../assets/js/combined.js"></script>
-	<title>File Usage - Classes - FuelPHP Documentation</title>
+	<title>ファイルクラスの利用 - Classes - FuelPHP Documentation</title>
 </head>
 <body>
 	<div id="container">
@@ -44,23 +44,21 @@
 		
 		<div id="main">
 		
-			<h2>File Class</h2>
+			<h2>ファイルクラス</h2>
 	
 			<p>
-				The file class offers a set of methods to working with files &amp; directories. This can be done through
-				some helper methods or through a more advanced object oriented method where all files and directories are
-				wrapped in objects.
+				ファイルクラスは、ファイル・ディレクトリを扱うメソッド一式を提供します。処理はヘルパーメソッド、あるいはオブジェクト指向を持つより進んだメソッドで行われます。後者のメソッドは全てのファイル・ディレクトリがオブジェクトにラップされています。
 			</p>
 	
 			<section>
-				<h2 id="usage">Usage</h2>
+				<h2 id="usage">利用</h2>
 	
-				<p>The File class's basic usage is through its helper methods which are listed below.</p>
+				<p>以下一覧するヘルパーメソッドが、ファイルクラスの基本利用法です</p>
 			</section>
 	
 			<article>
 				<h4 class="method" id="method_create">create($basepath, $name, $contents = null, $area = null)</h4>
-				<p>Create a file.</p>
+				<p>ファイル作</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -68,51 +66,50 @@
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$basepath</kbd></th>
-									<td><em>required</em></td>
-									<td>Location to create the new file in</td>
+									<td><em>必須</em></td>
+									<td>作成ファイルの場所</td>
 								</tr>
 								<tr>
 									<th><kbd>$name</kbd></th>
-									<td><em>required</em></td>
-									<td>Filename for the new file</td>
+									<td><em>必須</em></td>
+									<td>ファイル名</td>
 								</tr>
 								<tr>
 									<th><kbd>$contents</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>What to put into the new file</td>
+									<td>ファイル内容</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>エリアオブジェクト。初期設定はメインのconfig(更なる情報は<a href="advanced.html">より進んだ使い方</a>)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
+						<th>返り値</th>
 						<td><kbd>true</kbd></td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>FileAccessException</kbd> when the file already exists.
-							<kbd>InvalidPathException</kbd> when the basepath in not valid or not writable.
+							<kbd>FileAccessException</kbd> ファイルが既に存在。  
+							<kbd>InvalidPathException</kbd> basepathが無効か、書き込み出来ないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::create(DOCROOT, 'test.txt', 'Contents for file.');</code></pre>
 						</td>
@@ -123,7 +120,7 @@
 	
 			<article>
 				<h4 class="method" id="method_create_dir">create_dir($basepath, $name, $chmod = 0777, $area = null)</h4>
-				<p>Create a directory.</p>
+				<p>ディレクトリ作成</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -131,51 +128,49 @@
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$basepath</kbd></th>
-									<td><em>required</em></td>
-									<td>Location to create the new directory in</td>
+									<td><em>必須</em></td>
+									<td>新ディレクトリ作成時のbasepath</td>
 								</tr>
 								<tr>
 									<th><kbd>$name</kbd></th>
-									<td><em>required</em></td>
-									<td>Name for the new directory</td>
+									<td><em>必須</em></td>
+									<td>ディレクトリ名</td>
 								</tr>
 								<tr>
 									<th><kbd>$chmod</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Rights for the new directory</td>
+									<td>ディレクトリ権限</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td>bool - the output of the mkdir() PHP function</td>
+						<th>返り値</th>
+						<td>bool - PHPのmkdir()関数の出力</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>InvalidPathException</kbd> when the basepath does not exists or is not writable.
-							<kbd>FileAccessException</kbd> when the basepath is not writable.
-						</td>
+							<kbd>InvalidPathException</kbd> basepathが存在しないか、書き込み不可能なとき。
+							<kbd>FileAccessException</kbd> basepathが書き込み不可能なとき。						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::create_dir(DOCROOT, 'test', 0755);</code></pre>
 						</td>
@@ -186,7 +181,7 @@
 	
 			<article>
 				<h4 class="method" id="method_read">read($path, $as_string = false, $area = null)</h4>
-				<p>Reads a file and returns it ($as_string == true) or adds it to the output ($as_string == false).</p>
+				<p>ファイルを読み込み返す($as_string がtrueの場合)。あるいは出力する($as_stringがfalseの場合).</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -194,49 +189,47 @@
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the file to read</td>
+									<td><em>必須</em></td>
+									<td>読み込みファイルの場所</td>
 								</tr>
 								<tr>
 									<th><kbd>$as_string</kbd></th>
 									<td><kbd>false</kbd></td>
-									<td>Makes it use readfile() on false or file_get_contents() on <kbd>true</kbd></td>
+									<td>falseならreadfile()関数、<kbd>true</kbd>ならfile_get_contents()関数が用いられる。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
+						<th>返り値</th>
 						<td>
-							int|string - returns the number of bytes when $as_string was set to false or the file's
-							contents as a string when it was set to true.
+							整数か文字列 - $as_stringがfalseならバイト数。trueの場合ファイルコンテンツが文字列として返る。
 						</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
-						<td><kbd>InvalidPathException</kbd> when the file does not exists.</td>
+						<th>スロー</th>
+						<td><kbd>InvalidPathException</kbd> ファイルが存在しない場合。</td>
 					</tr>
 	
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
-							<pre class="php"><code>// Returns 'Contents for file.' if you created the file in the example for File::create()
+							<pre class="php"><code>// もし、例のようにFile::create()でファイルを作ったならば、'ファイル内容'を返します。
 $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						</td>
 					</tr>
@@ -246,7 +239,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_read_dir">read_dir($path, $depth = 0, $filter = null, $area = null)</h4>
-				<p>Reads directory contents into an array.</p>
+				<p>ディレクトリのコンテンツを配列に入れる。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -254,55 +247,50 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the directory to read</td>
+									<td><em>必須</em></td>
+									<td>ディレクトリの場所</td>
 								</tr>
 								<tr>
 									<th><kbd>$depth</kbd></th>
 									<td><kbd>0</kbd></td>
-									<td>How deep the subdirectories are recurred: 0 for unlimited, 1 for only the current
-									directory or specific number.</td>
+									<td>再帰的なディレクトリの深さ。1なら現在のカレントのみ。0あるいはそれ以下なら無限。</td>
 								</tr>
 								<tr>
 									<th><kbd>$filter</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>A filter for which files to read: <kbd>array()</kbd> for all or <kbd>null</kbd> for
-									all but hidden.</td>
+									<td>ファイル（リスト）の読み込むためのフィルタ: <kbd>array()</kbd>が設定されれば全て、<kbd>null</kbd>ならばhidden属性以外の全て。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td>array - a natural-case sorted array with subdirectories on top. Directories have a string key
-						with array value (or false when not read because of $depth limitation) and files are int indexed
-						with filename as value. All directories are suffixed with a directory separator.</td>
+						<th>返り値</th>
+						<td>配列 - 文字の自然順natural-caseでソートされたサブディレクトリを含む配列です。ディレクトリの場合、添字は文字列、値は配列です（あるいは、読み込み階層数の制限により読めない時はfalseとなります）。ファイルは整数の添字でファイル名をその値としてもちます。全てのディレクトリはディレクトリセパレータで区切られます。</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>InvalidPathException</kbd> when the path not a directory.
-							<kbd>FileAccessException</kbd> when the path is not readable.
+							<kbd>InvalidPathException</kbd> パスがディレクトリではないとき。
+							<kbd>FileAccessException</kbd> パスが読み込み不可能なとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::read_dir(DOCROOT);</code></pre>
 						</td>
@@ -321,51 +309,50 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$basepath</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the file to update</td>
+									<td><em>必須</em></td>
+									<td>アップデートしたいファイルの場所</td>
 								</tr>
 								<tr>
 									<th><kbd>$name</kbd></th>
-									<td><em>required</em></td>
-									<td>Filename for the file. If it does not exist, it will be created</td>
+									<td><em>必須</em></td>
+									<td>ファイル名。存在しない時は作成されます。</td>
 								</tr>
 								<tr>
 									<th><kbd>$contents</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>What to put into the file</td>
+									<td>ファイル内に書き込まれるコンテンツ。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
+						<th>返り値</th>
 						<td><kbd>true</kbd></td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>InvalidPathException</kbd> when the basepath not a directory or is not writable.
-							<kbd>FileAccessException</kbd> when there is no write access.
+							<kbd>InvalidPathException</kbd> basepathが存在しないか、書き込み不可能なとき。
+							<kbd>FileAccessException</kbd> basepathが書き込み不可能なとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::update(DOCROOT, 'test.txt', 'New contents for file.');</code></pre>
 						</td>
@@ -376,7 +363,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_append">append($basepath, $name, $contents = null, $area = null)</h4>
-				<p>Appends to an existing file.</p>
+				<p>存在するファイルの末尾に付け加える。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -384,51 +371,50 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$basepath</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the file to append to</td>
+									<td><em>必須</em></td>
+									<td>ファイルの場所。</td>
 								</tr>
 								<tr>
 									<th><kbd>$name</kbd></th>
-									<td><em>required</em></td>
-									<td>Filename for the file. This file has to exist</td>
+									<td><em>必須</em></td>
+									<td>ファイル名。必ず存在していなければいけません。</td>
 								</tr>
 								<tr>
 									<th><kbd>$contents</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>What to add to the file</td>
+									<td>付け加えられるコンテンツ。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
+						<th>返り値</th>
 						<td><kbd>true</kbd></td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>InvalidPathException</kbd> when the basepath not a directory or is not writable.
-							<kbd>FileAccessException</kbd> when the file does not exist.
+							<kbd>InvalidPathException</kbd> basepathが存在しないか、書き込み不可能なとき。
+							<kbd>FileAccessException</kbd> basepathが書き込み不可能なとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::append(DOCROOT, 'test.txt', 'Additional contents for file.');</code></pre>
 						</td>
@@ -439,7 +425,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_rename">rename($path, $new_path, $area = null)</h4>
-				<p>Rename directory or file.</p>
+				<p>ディレクトリあるいはファイルをリネームします。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -447,46 +433,45 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the file or directory to rename</td>
+									<td><em>必須</em></td>
+									<td>ファイルかディレクトリの場所。</td>
 								</tr>
 								<tr>
 									<th><kbd>$new_path</kbd></th>
-									<td><em>required</em></td>
-									<td>New name of the file or directory</td>
+									<td><em>必須</em></td>
+									<td>新しい名前。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td><kbd>boolen</kbd> result of <em>rename()</em></td>
+						<th>返り値</th>
+						<td><em>rename()</em>が返す<kbd>boolen</kbd></td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>FileAccessException</kbd> when the filetype is not allowed.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>FileAccessException</kbd> ファイルタイプが許可されていないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::rename(DOCROOT.'/test.txt', DOCROOT.'/newname.txt');</code></pre>
 						</td>
@@ -497,7 +482,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_rename_dir">rename_dir($path, $new_path, $area = null)</h4>
-				<p>Alias for File::rename</p>
+				<p>File::renameの別名</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -505,46 +490,45 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the file or directory to rename</td>
+									<td><em>必須</em></td>
+									<td>ファイルかディレクトリの場所。</td>
 								</tr>
 								<tr>
 									<th><kbd>$new_path</kbd></th>
-									<td><em>required</em></td>
-									<td>New name of the file or directory</td>
+									<td><em>必須</em></td>
+									<td>新しい名前。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
+						<th>返り値</th>
 						<td><kbd>boolen</kbd> result of <em>rename()</em></td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>FileAccessException</kbd> when the filetype is not allowed.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>FileAccessException</kbd> ファイルタイプが許可されていないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::rename(DOCROOT.'/dirname', DOCROOT.'/newdirname');</code></pre>
 						</td>
@@ -555,7 +539,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_copy">copy($path, $new_path, $area = null)</h4>
-				<p>Copy's a file.</p>
+				<p>ファイルをコピーします。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -563,48 +547,47 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the file to copy</td>
+									<td><em>必須</em></td>
+									<td>コピーされるファイルの場所。</td>
 								</tr>
 								<tr>
 									<th><kbd>$new_path</kbd></th>
-									<td><em>required</em></td>
-									<td>Path to copy to</td>
+									<td><em>必須</em></td>
+									<td>コピー先パス</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
+						<th>返り値</th>
 						<td><kbd>boolen</kbd> result of <em>copy()</em></td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>FileAccessException</kbd> when the filetype is not allowed.
-							<kbd>InvalidPathException</kbd> when the source path is not a file.
-							<kbd>FileAccessException</kbd> when the destination file already exists.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>FileAccessException</kbd> ファイルタイプが許可されていないものであったとき。
+							<kbd>InvalidPathException</kbd> ソースパスがファイルではないとき。
+							<kbd>FileAccessException</kbd> 対象とするファイルがすでに存在しているとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::copy(DOCROOT.'/test.txt', DOCROOT.'/newname.txt');</code></pre>
 						</td>
@@ -615,7 +598,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_copy_dir">copy_dir($path, $new_path, $area = null)</h4>
-				<p>Copy's a directory.</p>
+				<p>ディレクトリをコピー。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -623,47 +606,46 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the directory to copy</td>
+									<td><em>必須</em></td>
+									<td>コピーされるディレクトリ</td>
 								</tr>
 								<tr>
 									<th><kbd>$new_path</kbd></th>
-									<td><em>required</em></td>
-									<td>Path to copy to</td>
+									<td><em>必須</em></td>
+									<td>コピー先パス</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
+						<th>返り値</th>
 						<td><kbd>boolen</kbd> result of <em>copy()</em></td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>InvalidPathException</kbd> when the source path is not a directory.
-							<kbd>FileAccessException</kbd> when the destination directory already exists.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>InvalidPathException</kbd> パスが存在しないとき。
+							<kbd>FileAccessException</kbd> 対象とするディレクトリが既に存在しているとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::copy(DOCROOT.'/test.txt', DOCROOT.'/newname.txt');</code></pre>
 						</td>
@@ -674,7 +656,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_delete">delete($path, $area = null)</h4>
-				<p>Deletes a file.</p>
+				<p>ファイル削除</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -682,41 +664,40 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the file to delete</td>
+									<td><em>必須</em></td>
+									<td>ファイルの場所</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td><kbd>boolen</kbd> result of <em>unlink()</em></td>
+						<th>返り値</th>
+						<td>unlink()が返す<kbd>boolen</kbd></td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>InvalidPathException</kbd> when the source path is not a file.
+							<kbd>OutsideAreaException</kbd> ファイルエリアの中に無いとき。
+							<kbd>InvalidPathException</kbd> ソースパスにファイルがないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::delete(DOCROOT.'/test.txt');</code></pre>
 						</td>
@@ -727,7 +708,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_delete_dir">delete_dir($path, $recursive = true, $delete_top = true, $area = null)</h4>
-				<p>Deletes a file.</p>
+				<p>ディレクトリ削除（訳注：原文はdeletes a file)</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -735,52 +716,51 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the directory to delete</td>
+									<td><em>必須</em></td>
+									<td>ディレクトリの場所</td>
 								</tr>
 								<tr>
 									<th><kbd>$recursive</kbd></th>
 									<td><em>true</em></td>
-									<td>Whether to also delete contents of subdirectories</td>
+									<td>サブディレクトリのコンテンツまで削除するかどうか。</td>
 								</tr>
 								<tr>
 									<th><kbd>$delete_top</kbd></th>
 									<td><em>true</em></td>
-									<td>whether to delete the parent dir itself when empty</td>
+									<td>空ディレクトリなら親ディレクトリを削除するかどうか。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td><kbd>boolen</kbd> result of <em>unlink()</em> or true when not deleting content of subdirectories</td>
+						<th>返り値</th>
+						<td><em>unlink()</em>が返す<kbd>boolen</kbd>。また、サブディレクトリが削除されない場合はtrueを返す。</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>InvalidPathException</kbd> when the source path is not a directory.
-							<kbd>FileAccessException</kbd> when somethng went wrong during the delete process.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>InvalidPathException</kbd> ソースパスが存在しない場合。
+							<kbd>FileAccessException</kbd> 削除プロセスでなにか誤動作が発生したとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::delete_dir(DOCROOT.'/my_dir', DOCROOT.'/newname.txt');</code></pre>
 						</td>
@@ -791,7 +771,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_open_file">open_file($path, $lock = true, $area = null)</h4>
-				<p>Opens a file and locks it.</p>
+				<p>ファイルを開き、ロックします。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -799,46 +779,45 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Location of the file to open</td>
+									<td><em>必須</em></td>
+									<td>ファイルの場所。</td>
 								</tr>
 								<tr>
 									<th><kbd>$lock</kbd></th>
 									<td><em>true</em></td>
-									<td>Whether to lock the file when opening.</td>
+									<td>ファイルを開いたときにロックするかどうか。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td><kbd>resource</kbd>, the file resource</td>
+						<th>返り値</th>
+						<td><kbd>リソース</kbd>。 ファイルリソースです。</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>FileAccessException</kbd> when the file could not be locked.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>FileAccessException</kbd> ファイルがロック出来なかったとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>$resource = File::open_file(DOCROOT.'/my_dir/text.txt');</code></pre>
 						</td>
@@ -849,7 +828,7 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_close_file">close_file($resource, $area = null)</h4>
-				<p>Closes a file and unlocks it.</p>
+				<p>ファイルを閉じ、ロックを外します。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -857,37 +836,36 @@ $file_content = File::read(DOCROOT.'test.txt', true);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$resource</kbd></th>
-									<td><em>required</em></td>
-									<td>An open file resource</td>
+									<td><em>必須</em></td>
+									<td>オープンされているファイルリソース</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td><kbd>boolean</kbd> if a lock is used.</td>
+						<th>返り値</th>
+						<td><kbd>boolean</kbd>　ロックを使っているかどうか。</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>$resource = File::ope_file(DOCROOT.'/my_dir/text.txt');
-// Do something with the resource
+// リソースに対してなにかを行ってから、
 File::close_file($resource);</code></pre>
 						</td>
 					</tr>
@@ -897,7 +875,7 @@ File::close_file($resource);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_get">get($path, $config = array(), $area = null)</h4>
-				<p>Fetches a file handler for the given file. <a href="handlers.html">Read more about handlers.</a></p>
+				<p>指定したファイルからファイルハンドラを取得します。<a href="handlers.html">詳しくはハンドラの節をお読みください。</a></p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -905,46 +883,45 @@ File::close_file($resource);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>path to the file or directory to be wrapped in a the handler</td>
+									<td><em>必須</em></td>
+									<td>ハンドラにラップされるファイルあるいはディレクトリのパス</td>
 								</tr>
 								<tr>
 									<th><kbd>$config</kbd></th>
 									<td><strong>array()</strong></td>
-									<td>optional config array</td>
+									<td>オプションのconfig配列</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td>Returns a new file handler object.</td>
+						<th>返り値</th>
+						<td>新しいファイルハンドラオブジェクトが返ります。</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>FileAccessException</kbd> when the file extension is not allowed.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>FileAccessException</kbd> ファイル拡張子が許可されていないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>$handler = File::get(DOCROOT.'/my_dir/text.txt');</code></pre>
 						</td>
@@ -955,7 +932,7 @@ File::close_file($resource);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_get_url">get_url($path, $config = array(), $area = null)</h4>
-				<p>Retrieves the public url to a file. A url must be set in the base config or in the area config of the used area.</p>
+				<p>あるファイル（のパス）を、public urlとして取得します。urlはベースのconfigあるいはエリアを使っているならエリアのconfigとして設定されている必要があります。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -963,49 +940,48 @@ File::close_file($resource);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>path to the file </td>
+									<td><em>必須</em></td>
+									<td>ファイルのパス</td>
 								</tr>
 								<tr>
 									<th><kbd>$config</kbd></th>
 									<td><strong>array()</strong></td>
-									<td>optional config array</td>
+									<td>オプションとしてconfig配列。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td>The public url for the file.</td>
+						<th>返り値</th>
+						<td>当該ファイルに対応するpublic url。</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>FileAccessException</kbd> when the file extension is not allowed.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>FileAccessException</kbd> ファイルの拡張子が許可されていないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>$url = File::get_url(DOCROOT.'/my_dir/text.txt');
-// Returns something like: http://mydomain.com/mydir/text.txt</code></pre>
+// 次のような値が返ります: http://mydomain.com/mydir/text.txt</code></pre>
 						</td>
 					</tr>
 					</tbody>
@@ -1014,7 +990,7 @@ File::close_file($resource);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_get_permissions">get_permissions($path, $area = null)</h4>
-				<p>Retrieves the octal permissions for a file or directory.</p>
+				<p>8進数でファイルあるいはディレクトリのパーミッションを取得します。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1022,44 +998,43 @@ File::close_file($resource);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>path to the file </td>
+									<td><em>必須</em></td>
+									<td>パス</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td>The octal file permissions</td>
+						<th>返り値</th>
+						<td>8進数のファイルパーミッション。</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>FileAccessException</kbd> when the file extension is not allowed.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>FileAccessException</kbd> ファイル拡張子が許可されていないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>$permissions = File::get_permissions(DOCROOT.'/my_dir/text.txt');
-// Returns "0755"</code></pre>
+// 返り値 "0755"</code></pre>
 						</td>
 					</tr>
 					</tbody>
@@ -1068,7 +1043,7 @@ File::close_file($resource);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_get_time">get_time($path, $type = 'modified', $area = null)</h4>
-				<p>Retrieves the created or modified time of a file or directory.</p>
+				<p>ファイルあるいはディレクトリの作成あるいは修正時刻を取得します。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1076,46 +1051,45 @@ File::close_file($resource);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>path to the file </td>
+									<td><em>必須</em></td>
+									<td>パス。</td>
 								</tr>
 								<tr>
 									<th><kbd>$type</kbd></th>
 									<td><strong>'modified'</strong></td>
-									<td>Time of time to retrieve. Must be <em>modified</em> or <em>created</em></td>
+									<td>必要な時刻が返されます。<strong>created</strong>か<strong>modified</strong>のどちらかを設定する必要があります。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td>The file created/modified unix timestamp</td>
+						<th>返り値</th>
+						<td>ファイル作成時、変更時のUNIXタイムスタンプ。</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>FileAccessException</kbd> when the file extension is not allowed.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>FileAccessException</kbd> ファイル拡張子が許可されていないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>$permissions = File::get_time(DOCROOT.'/my_dir/text.txt', 'created');</code></pre>
 						</td>
@@ -1126,7 +1100,7 @@ File::close_file($resource);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_get_size">get_size($path, $type = 'modified', $area = null)</h4>
-				<p>Retrieves size in bytes for a file.</p>
+				<p>ファイルサイズのバイト数を取得します。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1134,42 +1108,41 @@ File::close_file($resource);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>path to the file </td>
+									<td><em>必須</em></td>
+									<td>パス</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td>The file size in bytes.</td>
+						<th>返り値</th>
+						<td>ファイルサイズのバイト数。</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>OutsideAreaException</kbd> when a path not inside the file area.
-							<kbd>FileAccessException</kbd> when the file extension is not allowed.
-							<kbd>InvalidPathException</kbd> when the file is not found.
+							<kbd>OutsideAreaException</kbd> パスがファイルエリアの中に無いとき。
+							<kbd>FileAccessException</kbd> ファイルの拡張子が許可されていないとき。
+							<kbd>InvalidPathException</kbd> ファイルが見あたらないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>$filesize = File::get_size(DOCROOT.'/my_dir/text.txt');</code></pre>
 						</td>
@@ -1180,7 +1153,7 @@ File::close_file($resource);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_file_info">file_info($path, $area = null)</h4>
-				<p>Retrieves an array of information about the specified file.</p>
+				<p>指定したファイルについての情報を配列で取得します。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1188,45 +1161,42 @@ File::close_file($resource);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>path to the file </td>
+									<td><em>必須</em></td>
+									<td>パス</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
+						<th>返り値</th>
 						<td>
-							An array with file information items. The array will contain path, filename and extension information,
-							the file size and permissions, the creation and last modified timestamps, the detected mime-type and
-							the file's characterset.
+							ファイル情報の配列。パス、ファイル名、拡張子、ファイルサイズ、パーミッション、作成・修正タイムスタンプ、mime-type、ファイルの文字セットからなります。
 						</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>InvalidPathException</kbd> when the file is not found.
-							<kbd>InvalidArgumentException</kbd> when the file info could be determined.
+							<kbd>InvalidPathException</kbd> ファイルが見あたらないとき。
+							<kbd>InvalidArgumentException</kbd> ファイル情報が得られないとき。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>$filesize = File::file_info(DOCROOT.'/my_dir/text.txt');</code></pre>
 						</td>
@@ -1237,7 +1207,7 @@ File::close_file($resource);</code></pre>
 	
 			<article>
 				<h4 class="method" id="method_download">download($path, $name = null, $mime = null, $area = null)</h4>
-				<p>Download a file.</p>
+				<p>ファイルをダウンロードします。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1245,50 +1215,49 @@ File::close_file($resource);</code></pre>
 						<td>Yes</td>
 					</tr>
 					<tr>
-						<th>Parameters</th>
+						<th>パラメタ</th>
 						<td>
 							<table class="parameters">
 								<tr>
 									<th>Param</th>
-									<th>Default</th>
-									<th class="description">Description</th>
+									<th>初期値</th>
+									<th class="description">説明</th>
 								</tr>
 								<tr>
 									<th><kbd>$path</kbd></th>
-									<td><em>required</em></td>
-									<td>Path to the file</td>
+									<td><em>必須</em></td>
+									<td>ファイルパス</td>
 								</tr>
 								<tr>
 									<th><kbd>$name</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Override the file's default filename</td>
+									<td>デフォルトファイル名をオーバーライドします。</td>
 								</tr>
 								<tr>
 									<th><kbd>$mime</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Override the file's default mimetype</td>
+									<td>デフォルトのmimetypeをオーバーライドします。</td>
 								</tr>
 								<tr>
 									<th><kbd>$area</kbd></th>
 									<td><kbd>null</kbd></td>
-									<td>Area object to use, defaults to main config (see <a href="advanced.html">advanced
-									usage</a> for more information)</td>
+									<td>利用エリアオブジェクト。初期設定はメインconfig(更なる情報は、<a href="advanced.html">より進んだ使い方</a>、参照。)</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
-						<th>Returns</th>
-						<td>n/a - this method exits after initiating the download.</td>
+						<th>返り値</th>
+						<td>n/a - このメソッドはダウンロードが開始された後、終了します。</td>
 					</tr>
 					<tr>
-						<th>Throws</th>
+						<th>スロー</th>
 						<td>
-							<kbd>FileAccessException</kbd> when the file could not be opened for read.
+							<kbd>FileAccessException</kbd>：ファイル読み込み不可の場合。
 						</td>
 					</tr>
 					<tr>
-						<th>Example</th>
+						<th>例</th>
 						<td>
 							<pre class="php"><code>File::download(DOCROOT.'/my_dir/text.txt', 'newfile.txt');</code></pre>
 						</td>
