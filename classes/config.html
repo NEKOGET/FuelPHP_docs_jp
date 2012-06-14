@@ -50,26 +50,26 @@
 			<p>Config クラスは、Fuel の設定オプションの殆どすべてを処理することが出来ます。config ファイルの読み込み、値の取得、設定を行う場合、本クラスが常用されます。</p>
 
 
-			<h3 id="config_groups">Config File Types</h3>
+			<h3 id="config_groups">Config ファイルの種類</h3>
 
-			You can use different file layouts to store your configuration. The layout type is determined by the file extension:
+			設定を保存するのに、異なるファイルレイアウトを使用できます。レイアウトの種類はファイル拡張子で決定します。
 			<ul>
 				<li>
-					PHP. The default type. A PHP file should return an array structure.
+					PHP. デフォルト。PHP ファイルは配列構造を返す必要があります。
 					<pre class="php"><code> return array('key' => 'value');</code></pre>
 				</li>
 				<li>
-					INI. See <a href="http://en.wikipedia.org/wiki/INI_file">this page</a> for a definition of the ini-file layout.
+					INI. ini ファイルのレイアウトについては、<a href="http://en.wikipedia.org/wiki/INI_file">このページ</a>をごらんください。
 					<pre class="ini"><code> [group]
 key=value</code></pre>
 				</li>
 				<li>
-					YAML. See <a href="http://en.wikipedia.org/wiki/YAML">this page</a> for a definition of the yaml-file layout.
+					YAML. yaml ファイルのレイアウトについては、<a href="http://en.wikipedia.org/wiki/YAML">このページ</a>をごらんください。
 					<pre class="yaml"><code> group:
    key: value</code></pre>
 				</li>
 				<li>
-					JSON. See <a href="http://en.wikipedia.org/wiki/JSON">this page</a> for a definition of the yaml-file layout.
+					JSON. json ファイルのレイアウトについては、<a href="http://en.wikipedia.org/wiki/JSON">このページ</a>をごらんください。
 					<pre class="javascript"><code> {
 "group" :
     {
@@ -79,7 +79,7 @@ key=value</code></pre>
 				</li>
 			</ul>
 
-			<p>If you don't specify a file type, Config::load() will default to the 'php' type.</p>
+			<p>ファイルの種類を指定しない場合は、Config::load() はデフォルトの 'php' になります。</p>
 
 			<h3 id="config_groups">Config グループ</h3>
 
