@@ -48,10 +48,10 @@
 
 			<section>
 
-				<h3 id="introduction">Introduction</h3>
+				<h3 id="introduction">導入</h3>
 
 				<p>
-					Fuel は、データベースの抽象化レイヤに基づいたドライバを提供しています。今のところ、サポートされているドライバは、 MySQL, MySQLi, PDOです。
+					Fuel は、データベースの抽象化レイヤに基づいたドライバを提供しています。今のところサポートされているドライバは、MySQL, MySQLi, PDOです。
 					また、データベースの作成やフィールドの追加といった、データベースの各種操作を行なうDBUtilクラスを利用できます。
 				</p>
 
@@ -59,16 +59,16 @@
 			</section>
 
 			<section>
-				<h3 id="configuration">Configuration</h3>
+				<h3 id="configuration">設定</h3>
 
 				<p>
-					In order to begin working with databases, you must change the database settings. The
-					database config file is located at <em>APPPATH/config/db.php</em>.
+					データベースを利用するにあたって、まず設定を変更する必要があります。
+					設定ファイルは、<em>APPPATH/config/db.php</em>に設置されています。
 				</p>
 				<p>
-					Database configurations are formated like so:
+					データベース設定の書式は、以下の通りです:
 				</p>
-					<pre class="php"><code>// a MySQL driver configuration
+					<pre class="php"><code>// MySQL ドライバの設定
 'development' => array(
 	'type'           => 'mysqli',
 	'connection'     => array(
@@ -85,7 +85,7 @@
 	'profiling'      => false,
 ),
 
-// a PDO driver configuration
+// PDO ドライバの設定
 'production' => array(
 	'type'           => 'pdo',
 	'connection'     => array(
@@ -99,68 +99,68 @@
 	'enable_cache'   => true,
 	'profiling'      => false,
 ),</code></pre>
-				<h3 id="config_settings">All Config Settings</h3>
+				<h3 id="config_settings">全ての設定</h3>
 				<table class="method">
 					<tbody>
 						<tr>
-							<th>Setting</th>
-							<th>Type</th>
-							<th class="description">Description</th>
+							<th>設定項目</th>
+							<th>型</th>
+							<th class="description">説明</th>
 						</tr>
 						<tr>
 							<th><kbd>type</kbd></th>
 							<td>string</td>
-							<td>What type of connection to use. Can be mysq, mysqli or pdo.</td>
+							<td>接続に利用するタイプ。mysql, mysqli, pdo が指定できます。</td>
 						</tr>
 						<tr>
 							<th><kbd>connection</kbd></th>
 							<td>array</td>
-							<td>Connection settings array</td>
+							<td>接続設定を指定する配列。</td>
 						</tr>
 						<tr>
 							<th><kbd>connection.dns</kbd></th>
 							<td>string</td>
-							<td>Connection DNS for PDO.</td>
+							<td>PDOを利用する場合のDNS。</td>
 						</tr>
 						<tr>
 							<th><kbd>connection.username</kbd></th>
 							<td>string</td>
-							<td>Connection user.</td>
+							<td>接続ユーザ名。</td>
 						</tr>
 						<tr>
 							<th><kbd>connection.password</kbd></th>
 							<td>string</td>
-							<td>Connection password.</td>
+							<td>接続パスワード。</td>
 						</tr>
 						<tr>
 							<th><kbd>connection.persistent</kbd></th>
 							<td>boolean</td>
-							<td>Wether to initiate a persisten connection.</td>
+							<td>永続的な接続を利用するか。</td>
 						</tr>
 						<tr>
 							<th><kbd>table_prefix</kbd></th>
 							<td>string</td>
-							<td>Table prefix.</td>
+							<td>テーブルの接頭語。</td>
 						</tr>
 						<tr>
 							<th><kbd>charset</kbd></th>
 							<td>string</td>
-							<td>Connection charset.</td>
+							<td>接続時のキャラクタセット。</td>
 						</tr>
 						<tr>
 							<th><kbd>enable_cache</kbd></th>
 							<td>boolean</td>
-							<td>Wether to allow caching, will overwrite query cache settings on a connection basis.</td>
+							<td>キャッシュを利用するか。この設定は接続毎のクエリキャッシュ設定を上書きします。</td>
 						</tr>
 						<tr>
 							<th><kbd>profiling</kbd></th>
 							<td>boolean</td>
-							<td>Wether to add the connections queries to the profiler.</td>
+							<td>プロファイルにクエリを追加するか。</td>
 						</tr>
 					</tbody>
 				</table>
 				<p>
-					Once you have your configuration in place, it's time to <a href="./usage.html">use it</a>.
+					設定が完了したら、<a href="./usage.html">使用</a>してみましょう。
 				</p>
 			</section>
 
