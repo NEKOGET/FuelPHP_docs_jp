@@ -66,7 +66,7 @@
 
 				<p>
 					事前に定義したアクションやビューを持つ <a href="../../general/controllers/base.html">Controller</a> のスケルトンを生成するために、
-					次ようなコマンドを使用します:
+					次のようなコマンドを使用します:
 				</p>
 
 				<pre class="cli"><code>$ php oil g controller posts action1 action2 action3
@@ -333,7 +333,7 @@ $ php oil refine migrate:up
 	Created migration: APPPATH/migrations/002_rename_table_users_to_accounts.php</code></pre>
 
 				<h3 id="magic_migrations">Magic マイグレーション</h3>
-				<p>いくるかの "magic" マイグレーションがあり、自動的にあなたのマイグレーション名のプリフィックスに基づいたマイグレーションをビルドします。</p>
+				<p>いくつかの "magic" マイグレーションがあり、自動的にあなたのマイグレーション名のプリフィックスに基づいたマイグレーションをビルドします。</p>
 				<pre class="cli"><code>$ php oil generate migration create_users name:text email:string[50] password:string[125]
 $ php oil generate migration rename_table_users_to_accounts
 $ php oil generate migration add_bio_to_accounts bio:text
