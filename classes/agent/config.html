@@ -47,17 +47,16 @@
 
 			<h2>Agent クラス</h2>
 
-			<p>The agent class allows you to retrieve information about browser type, version, platform or operating system, etc, based on the clients User Agent string.</p>
+			<p>Agent クラスは、ブラウザ種別、バージョン、プラットフォーム、OSなど、クライアントのユーザーエージェント文字列に関する情報を取得可能にします。</p>
 
 			<section>
 				<h3 id="config">設定</h3>
 
 				<p>
-					The agent class uses the PHP function <a href="http://php.net/manual/en/function.get-browser.php">get_browser()</a>,
-					which attempts to determine the capabilities of the user's browser, by looking up the browser's information in the browscap.ini file.
+					Agent クラスは、PHP 関数 <a href="http://php.net/manual/en/function.get-browser.php">get_browser()</a>　を使用し、ユーザーのブラウザの機能を調べます。これは、browscap.ini ファイルのブラウザ情報を調べることにより行います。
 				</p>
 
-				<p>The following global configuration values can be defined:</p>
+				<p>設定可能な値は次のとおりです。</p>
 				<table class="config">
 					<tbody>
 						<tr class="header">
@@ -77,7 +76,7 @@
 )</code></pre>
 							</td>
 							<td>
-								browscap.ini retrieval configuration.
+								browscap.ini 取得設定
 							</td>
 						</tr>
 						<tr>
@@ -90,7 +89,7 @@
 )</code></pre>
 							</td>
 							<td>
-								browscap.ini caching configuration.
+								browscap.ini キャッシュ設定
 							</td>
 						</tr>
 					</tbody>
@@ -100,9 +99,8 @@
 					<h5 id="browsercap_config">Browscap.ini configuration</h5>
 
 					<p>
-						If PHP has not been configured to use the browscap.ini file, the agent class will retrieve the file from the location defined in
-						the <strong>config/agent.php</strong> config file, and cached locally for re-use. This cache will be updated on a regular basis, based
-						on the timeout value defined in the configuration.
+						もしPHPに browscap.ini ファイルを使用する設定がなされていない場合, Agent クラスは 設定ファイル <strong>config/agent.php</strong> に定義されたファイルのパスから取得し、再利用のためにローカルにキャッシュします。
+						このキャッシュは、設定ファイルに定義されたキャッシュ期限により、定期的に更新されます。
 					</p>
 
 					<table class="config">
