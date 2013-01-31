@@ -47,11 +47,11 @@
 
 			<h2>Arr クラス</h2>
 
-			<p>The arr class is a set of helper functions for working with arrays.</p>
+			<p>Arr クラスは配列用のヘルパー関数のセットです。</p>
 
 			<article>
 				<h4 class="method" id="method_is_multi">is_multi($arr, $all_keys = false)</h4>
-				<p>The <strong>is_multi</strong> method checks if the array passed is multi-dimensional array or not.</p>
+				<p><strong>is_multi</strong> メソッドは引数の配列が多次元配列かそうでないかをチェックします。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -70,14 +70,14 @@
 								<tr>
 									<th><kbd>$arr</kbd></th>
 									<td><em>必須</em></td>
-									<td>The array to check.</td>
+									<td>チェックする配列。</td>
 								</tr>
 								<tr>
 									<th><kbd>$all_keys</kbd></th>
 									<td>
 										<pre class="php"><span class="keyword">false</span></pre>
 									</td>
-									<td>Check that all elements are arrays.</td>
+									<td>TRUEの場合は全ての要素が多次元配列かをチェックします。</td>
 								</tr>
 							</table>
 						</td>
@@ -89,21 +89,21 @@
 					<tr>
 						<th>例</th>
 						<td>
-							<pre class="php"><code>// Single array
+							<pre class="php"><code>// 一次元配列
 $arr = array('one' => 1, 'two' => 2);
 echo Arr::is_multi($arr);
-// Result: false
+// 実行結果: false
 
-// Multi-dimensional array
+// 多次元配列
 $arr = array('one' => array('test' => 1), 'two' => array('test' => 2), 'three' => array('test' => 3));
 echo Arr::is_multi($arr);
-// Result: true
+// 実行結果: true
 
-// Multi-dimensional array with elements check
+// 多次元配列で全ての要素をチェック
 $arr = array('one' => array('test' => 1), 'two' => array('test' => 2), 'three' => 3);
 
-echo Arr::is_multi($arr, false); // Result: true
-echo Arr::is_multi($arr, true);  // Result: false
+echo Arr::is_multi($arr, false); // 実行結果: true
+echo Arr::is_multi($arr, true);  // 実行結果: false
 </code></pre>
 						</td>
 					</tr>
@@ -113,7 +113,7 @@ echo Arr::is_multi($arr, true);  // Result: false
 
 			<article>
 				<h4 class="method" id="method_is_assoc">is_assoc($arr)</h4>
-				<p>The <strong>is_assoc</strong> method checks if the array passed is an associative array or not.</p>
+				<p><strong>is_assoc</strong> メソッドは引数の配列が連想配列かそうでないかをチェックします。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -132,7 +132,7 @@ echo Arr::is_multi($arr, true);  // Result: false
 								<tr>
 									<th><kbd>$arr</kbd></th>
 									<td><em>必須</em></td>
-									<td>The array to check.</td>
+									<td>チェックする配列。</td>
 								</tr>
 							</table>
 						</td>
@@ -146,19 +146,19 @@ echo Arr::is_multi($arr, true);  // Result: false
 						<td>
 							<pre class="php"><code>$arr = array('foo', 'bar', 'baz', 'yay');
 echo Arr::is_assoc($arr);
-// Result: false
+// 実行結果: false
 
 $arr = array('foo' => 'foo', 'bar' => 'bar', 'baz' => 'baz', 'yay' => 'yay');
 echo Arr::is_assoc($arr);
-// Result: true
+// 実行結果: true
 
 /*
- * Note that even if the '2' is defined as a string, PHP will store this internally
- * as an integer, and therefore this is NOT seen as an assoc array!
+ * たとえもし '2' が string で定義されていたとしても、PHPは内部的に integer として保管するため、
+ * 連想配列とは認識されません!
  */
 $arr = array(0 => 'foo', 1 => 'bar', '2' => 'baz', 3 => 'yay');
 echo Arr::is_assoc($arr);
-// Result: false!
+// 実行結果: false!
 </code></pre>
 						</td>
 					</tr>
@@ -168,7 +168,7 @@ echo Arr::is_assoc($arr);
 
 			<article>
 				<h4 class="method" id="method_to_assoc">to_assoc($arr)</h4>
-				<p>The <strong>to_assoc</strong> method turns a non-associative array into an associative array if it has an even number of segments.</p>
+				<p><strong>to_assoc</strong> メソッドは連想配列でない配列を連想配列に変換します。もし元の配列に数値が入っていたとしても変換します。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -187,7 +187,7 @@ echo Arr::is_assoc($arr);
 								<tr>
 									<th><kbd>$arr</kbd></th>
 									<td><em>必須</em></td>
-									<td>The array to convert.</td>
+									<td>変換する配列。</td>
 								</tr>
 							</table>
 						</td>
@@ -198,8 +198,7 @@ echo Arr::is_assoc($arr);
 					</tr>
 					<tr>
 						<th>例外</th>
-						<td><kbd>BadMethodCallException</kbd> when the number of values in the given array is
-							uneven</td>
+						<td><kbd>BadMethodCallException</kbd> 引数の配列の要素数が奇数のとき</td>
 					</tr>
 					<tr>
 						<th>例</th>
@@ -207,7 +206,7 @@ echo Arr::is_assoc($arr);
 							<pre class="php"><code>$arr = array('foo', 'bar', 'baz', 'yay');
 print_r(Arr::to_assoc($arr));
 
-// Result:
+// 実行結果:
 Array
 (
     ["foo"] => 'bar'
@@ -216,7 +215,7 @@ Array
 
 $arr = array('foo', 'bar', 'baz');
 echo Arr::to_assoc($arr);
-// Result: null
+// 実行結果: null
 </code></pre>
 						</td>
 					</tr>
@@ -226,7 +225,7 @@ echo Arr::to_assoc($arr);
 
 			<article>
 				<h4 id="method_assoc_to_keyval" class="method">assoc_to_keyval($assoc = null, $key_field = null, $val_field = null)</h4>
-				<p>The <strong>assoc_to_keyval</strong> method turns a multi-dimensional array into a key=>val array.</p>
+				<p><strong>assoc_to_keyval</strong> メソッドは多次元配列を key=>val の配列に変換します。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -245,17 +244,17 @@ echo Arr::to_assoc($arr);
 								<tr>
 									<th><kbd>$assoc</kbd></th>
 									<td><em>必須</em></td>
-									<td>The array to transform.</td>
+									<td>変換する配列。</td>
 								</tr>
 								<tr>
 									<th><kbd>$key_field</kbd></th>
 									<td><em>必須</em></td>
-									<td>The associative array field to map as the key.</td>
+									<td>key となる連想配列の添字。</td>
 								</tr>
 								<tr>
 									<th><kbd>$val_field</kbd></th>
 									<td><em>必須</em></td>
-									<td>The associative array field to map as the value.</td>
+									<td>value となる連想配列の添字。</td>
 								</tr>
 							</table>
 						</td>
@@ -266,8 +265,7 @@ echo Arr::to_assoc($arr);
 					</tr>
 					<tr>
 						<th>例外</th>
-						<td><kbd>InvalidArgumentException</kbd> when the first argument isn't an array or doesn't
-							implement the Iterator interface.</td>
+						<td><kbd>InvalidArgumentException</kbd> 1番目の引数が配列でないか、Iteratorインターフェイスを実装していないとき。</td>
 					</tr>
 					<tr>
 						<th>例</th>
@@ -285,7 +283,7 @@ echo Arr::to_assoc($arr);
 
 print_r(Arr::assoc_to_keyval($people, 'name', 'age'));
 
-// Result:
+// 実行結果:
 Array
 (
 	["Jack"] => 21
@@ -300,7 +298,7 @@ Array
 
 			<article>
 				<h4 id="method_average" class="method">average($array = null)</h4>
-				<p>The <strong>average</strong> method takes all values of an array and returns the average value.</p>
+				<p><strong>average</strong> メソッドは全ての配列の値から平均値を求めて返します。</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -319,7 +317,7 @@ Array
 								<tr>
 									<th><kbd>$array</kbd></th>
 									<td><em>必須</em></td>
-									<td>Array of values to average.</td>
+									<td>平均値を求める配列。</td>
 								</tr>
 							</table>
 						</td>
@@ -332,7 +330,7 @@ Array
 						<th>例</th>
 						<td>
 							<pre class="php"><code>echo Arr::average(array('1', 2, 4, '8'));
-// Result: 3.75</code></pre>
+// 実行結果: 3.75</code></pre>
 						</td>
 					</tr>
 					</tbody>
@@ -341,7 +339,7 @@ Array
 
 			<article>
 				<h4 id="method_flatten" class="method">flatten($array, $glue = ':', $reset = true)</h4>
-				<p>The <strong>flatten</strong> method flattens a multi-dimensional array (both associative and indexed) down into a 1 dimensional array.</p>
+				<p><strong>flatten</strong> method flattens a multi-dimensional array (both associative and indexed) down into a 1 dimensional array.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -390,7 +388,7 @@ Array
 
 print_r(Arr::flatten($indexed, '_'));
 
-// Result:
+// 実行結果:
 Array
 (
 	[0_0] => a
@@ -405,7 +403,7 @@ Array
 
 			<article>
 				<h4 id="method_flatten_assoc" class="method">flatten_assoc($array, $glue = ':', $reset = true)</h4>
-				<p>The <strong>flatten_assoc</strong> method flattens a multi-dimensional associative array down into a 1 dimensional associative array.</p>
+				<p><strong>flatten_assoc</strong> method flattens a multi-dimensional associative array down into a 1 dimensional associative array.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -459,7 +457,7 @@ Array
 
 print_r(Arr::flatten_assoc($people));
 
-// Result:
+// 実行結果:
 Array
 (
 	[0:name] => Jack
@@ -471,7 +469,7 @@ Array
 // Let's flatten another array on top
 print_r(Arr::flatten_assoc(array(array("name" => "Humpty", "age" => 11)), ":", false));
 
-// Result:
+// 実行結果:
 Array
 (
 	[0:name] => Humpty
@@ -488,7 +486,7 @@ Array
 
 			<article>
 				<h4 id="method_reverse_flatten" class="method">reverse_flatten($array, $glue = ':')</h4>
-				<p>The <strong>reverse_flatten</strong> method unflattens a flattened multi-dimensional array (both associative and indexed) into its original form.</p>
+				<p><strong>reverse_flatten</strong> method unflattens a flattened multi-dimensional array (both associative and indexed) into its original form.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -533,7 +531,7 @@ Array
 
 print_r(Arr::reverse_flatten($flattened, '_'));
 
-// Result:
+// 実行結果:
 Array
 (
 	[0] => Array
@@ -556,7 +554,7 @@ Array
 
 			<article>
 				<h4 id="method_filter_prefixed" class="method">filter_prefixed($array, $prefix, $remove_prefix = true)</h4>
-				<p>The <strong>filter_prefixed</strong> method filters the array on a prefix. It returns an array where the key starts with the specified prefix.</p>
+				<p><strong>filter_prefixed</strong> method filters the array on a prefix. It returns an array where the key starts with the specified prefix.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -606,7 +604,7 @@ Array
 
 print_r(Arr::filter_prefixed($arr, "user_"));
 
-// Result:
+// 実行結果:
 Array
 (
 	[name] => John
@@ -616,7 +614,7 @@ Array
 // Let's keep the prefix
 print_r(Arr::filter_prefixed($arr, "project_", false);
 
-// Result:
+// 実行結果:
 Array
 (
 	[project_name] => Fuel
@@ -631,7 +629,7 @@ Array
 
 			<article>
 				<h4 id="method_remove_prefixed" class="method">remove_prefixed($array, $prefix)</h4>
-				<p>The <strong>remove_prefixed</strong> method removes values from an array if they match a given prefix.</p>
+				<p><strong>remove_prefixed</strong> method removes values from an array if they match a given prefix.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -676,7 +674,7 @@ Array
 
 print_r(Arr::remove_prefixed($arr, "project"));
 
-// Result:
+// 実行結果:
 Array
 (
 	[user_name] => John
@@ -691,7 +689,7 @@ Array
 
             <article>
                 <h4 id="method_filter_suffixed" class="method">filter_suffixed($array, $suffix, $remove_suffix = true)</h4>
-                <p>The <strong>filter_suffixed</strong> method filters the array on a suffix. It returns an array where the key ends with the specified suffix.</p>
+                <p><strong>filter_suffixed</strong> method filters the array on a suffix. It returns an array where the key ends with the specified suffix.</p>
                 <table class="method">
                     <tbody>
                     <tr>
@@ -741,7 +739,7 @@ Array
 
                                 print_r(Arr::filter_suffixed($arr, "_1"));
 
-                                // Result:
+                                // 実行結果:
                                 Array
                                 (
                                 [name] => John
@@ -751,7 +749,7 @@ Array
                                 // Let's keep the suffix
                                 print_r(Arr::filter_suffixed($arr, "_1", false);
 
-                                // Result:
+                                // 実行結果:
                                 Array
                                 (
                                 [name_1] => John
@@ -766,7 +764,7 @@ Array
 
             <article>
                 <h4 id="method_remove_suffixed" class="method">remove_suffixed($array, $suffix)</h4>
-                <p>The <strong>remove_suffixed</strong> method removes values from an array if they match a given suffix.</p>
+                <p><strong>remove_suffixed</strong> method removes values from an array if they match a given suffix.</p>
                 <table class="method">
                     <tbody>
                     <tr>
@@ -811,7 +809,7 @@ Array
 
                                 print_r(Arr::remove_suffixed($arr, "_1"));
 
-                                // Result:
+                                // 実行結果:
                                 Array
                                 (
                                 [name_2] => Ted
@@ -826,7 +824,7 @@ Array
 
 			<article>
 				<h4 id="method_filter_keys" class="method">filter_keys($array, $keys, $remove = false)</h4>
-				<p>The <strong>filter_keys</strong> method filters a given array to a set of keys. It returns an array that contains only the items whose keys are in the <kbd>$keys</kbd> array. Can also remove the specified <kbd>$keys</kbd> from an array.</p>
+				<p><strong>filter_keys</strong> method filters a given array to a set of keys. It returns an array that contains only the items whose keys are in the <kbd>$keys</kbd> array. Can also remove the specified <kbd>$keys</kbd> from an array.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -876,7 +874,7 @@ Array
 
 print_r(Arr::filter_keys($arr, array('project_name', 'user_name')));
 
-// Result:
+// 実行結果:
 Array
 (
 	[project_name] => Fuel
@@ -886,7 +884,7 @@ Array
 // Let's remove some keys
 print_r(Arr::filter_keys($arr, array('user_name', 'user_surname'), true));
 
-// Result:
+// 実行結果:
 Array
 (
 	[project_name] => Fuel
@@ -901,7 +899,7 @@ Array
 
 			<article>
 				<h4 id="method_filter_recursive" class="method">filter_recursive($array, $callback = null)</h4>
-				<p>The <strong>filter_recursive</strong> method provides a recursive version of PHP's array_filter() function. Like it's counterpart, you can optionally pass a callback function to determine what should be filtered.</p>
+				<p><strong>filter_recursive</strong> method provides a recursive version of PHP's array_filter() function. Like it's counterpart, you can optionally pass a callback function to determine what should be filtered.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -955,7 +953,7 @@ Array
 
 print_r(Arr::filter_recursive($arr));
 
-// Result:
+// 実行結果:
 Array
 (
 	[project_name] => Fuel
@@ -972,7 +970,7 @@ Array
 // Let's use a callback
 print_r(Arr::filter_recursive($arr, function($item){ return $item !== ""; });
 
-// Result:
+// 実行結果:
 Array
 (
 	[project_name] => Fuel
@@ -998,7 +996,7 @@ Array
 
 			<article>
 				<h4 id="method_get" class="method">get($array, $key, $default = false)</h4>
-				<p>The <strong>get</strong> method returns the element of the given array using dot-notation, or a default if it is not set.</p>
+				<p><strong>get</strong> method returns the element of the given array using dot-notation, or a default if it is not set.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1050,14 +1048,14 @@ Array
 );
 
 echo Arr::get($person, "name", "Unknown Name");
-// Result: "Jack"
+// 実行結果: "Jack"
 
 echo Arr::get($person, "job", "Unknown job");
-// Result: "Unknown job"
+// 実行結果: "Unknown job"
 
 // This method can also dive into arrays by using a dot to separate between keys
 echo Arr::get($person, "location.city", "Unknown City");
-// Result: "Pittsburgh"</code></pre>
+// 実行結果: "Pittsburgh"</code></pre>
 						</td>
 					</tr>
 					</tbody>
@@ -1066,7 +1064,7 @@ echo Arr::get($person, "location.city", "Unknown City");
 
 			<article>
 				<h4 id="method_set" class="method">set(&amp;$array, $key, $value = null)</h4>
-				<p>The <strong>set</strong> method sets the element of the given array using dot-notation.</p>
+				<p><strong>set</strong> method sets the element of the given array using dot-notation.</p>
 				<p class="note"><strong>WARNING</strong>: The original array is edited by reference</p>
 				<table class="method">
 					<tbody>
@@ -1135,7 +1133,7 @@ Arr::set($person, array("name" => "John", "location.city" => "Philadelphia"));</
 
 			<article>
 				<h4 id="method_pluck" class="method">pluck($array, $key, $index = null)</h4>
-				<p>The <strong>pluck</strong> method plucks values from a collection of arrays or objects.</p>
+				<p><strong>pluck</strong> method plucks values from a collection of arrays or objects.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1210,7 +1208,7 @@ $names = \Arr::pluck($collection, 'name', 'id');
 
 			<article>
 				<h4 id="method_delete" class="method">delete(&amp;$array, $key)</h4>
-				<p>The <strong>delete</strong> method the element of the given array using dot-notation.<br />
+				<p><strong>delete</strong> method the element of the given array using dot-notation.<br />
 				<u>WARNING</u>: The original array is edited by reference, only boolean success is returned</p>
 				<table class="method">
 					<tbody>
@@ -1275,7 +1273,7 @@ $result = Arr::delete($person, array("name", "location.doesnotexist"));
 
 			<article>
 				<h4 id="method_insert" class="method">insert(Array &amp;$original, $value, $pos)</h4>
-				<p>The <strong>insert</strong> method is mainly an array_splice alias with added error checking <br />
+				<p><strong>insert</strong> method is mainly an array_splice alias with added error checking <br />
 				<u>WARNING</u>: The original array is edited by reference, only boolean success is returned</p>
 				<table class="method">
 					<tbody>
@@ -1322,7 +1320,7 @@ $result = Arr::delete($person, array("name", "location.doesnotexist"));
 // Add one value
 Arr::insert($people, "Humpty", 0);
 print_r($people);
-// Result:
+// 実行結果:
 Array
 (
 	[0] => Humpty
@@ -1333,7 +1331,7 @@ Array
 // Add multiple values
 Arr::insert($people, array("Hansel", "Gretel"), 1);
 print_r($people);
-// Result:
+// 実行結果:
 Array
 (
 	[0] => Humpty
@@ -1347,7 +1345,7 @@ Array
 Arr::insert($people, array( array("name" => "Wolf", "teeth" => "sharp")), 0);
 print_r($people);
 
-// Result:
+// 実行結果:
 Array
 (
 	[0] => Array
@@ -1372,7 +1370,7 @@ Array
 
 			<article>
 				<h4 id="method_insert_before_key" class="method">insert_before_key(Array &amp;$original, $value, $key)</h4>
-				<p>The <strong>insert_before_key</strong> method adds an element to an array before the key specified <br />
+				<p><strong>insert_before_key</strong> method adds an element to an array before the key specified <br />
 				<u>WARNING</u>: The original array is edited by reference, only boolean success is returned</p>
 				<table class="method">
 					<tbody>
@@ -1419,7 +1417,7 @@ Array
 Arr::insert_before_key($people, "Humpty", 1);
 print_r($people);
 
-// Result:
+// 実行結果:
 Array
 (
 	[0] => Jack
@@ -1435,7 +1433,7 @@ Array
 
 			<article>
 				<h4 id="method_insert_after_key" class="method">insert_after_key(Array &amp;$original, $value, $key)</h4>
-				<p>The <strong>insert_after_key</strong> method adds an element to an array after the key specified <br />
+				<p><strong>insert_after_key</strong> method adds an element to an array after the key specified <br />
 				<u>WARNING</u>: The original array is edited by reference, only boolean success is returned</p>
 				<table class="method">
 					<tbody>
@@ -1482,7 +1480,7 @@ Array
 Arr::insert_after_key($people, "Humpty", 1);
 print_r($people);
 
-// Result:
+// 実行結果:
 Array
 (
 	[0] => Jack
@@ -1498,7 +1496,7 @@ Array
 
 			<article>
 				<h4 id="method_insert_after_value" class="method">insert_after_value(Array &amp;$original, $value, $search)</h4>
-				<p>The <strong>insert_after_value</strong> method adds an element to an array after the value specified <br />
+				<p><strong>insert_after_value</strong> method adds an element to an array after the value specified <br />
 				<u>WARNING</u>: The original array is edited by reference, only boolean success is returned</p>
 				<table class="method">
 					<tbody>
@@ -1545,7 +1543,7 @@ Array
 Arr::insert_after_value($people, "Humpty", "Jack");
 print_r($people);
 
-// Result:
+// 実行結果:
 Array
 (
 	[0] => Jack
@@ -1561,7 +1559,7 @@ Array
 
 			<article>
 				<h4 id="method_sort" class="method">sort($array, $key, $order = 'asc', $sort_flags = SORT_REGULAR)</h4>
-				<p>The <strong>sort</strong> method sorts a multi-dimensional array by its values.</p>
+				<p><strong>sort</strong> method sorts a multi-dimensional array by its values.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1632,7 +1630,7 @@ Array
 );
 
 $data = Arr::sort($data, 'info.pet.type');
-// Result:
+// 実行結果:
 array(
 	array(
 		'info' => array(
@@ -1664,7 +1662,7 @@ array(
 
 			<article>
 				<h4 id="method_multisort" class="method">multisort($array, $conditions, $ignore_case = false)</h4>
-				<p>The <strong>sort</strong> method sorts a multi-dimensional array by multiple values.</p>
+				<p><strong>sort</strong> method sorts a multi-dimensional array by multiple values.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1786,7 +1784,7 @@ Array
 
 			<article>
 				<h4 id="method_in_array_recursive" class="method">in_array_recursive($needle, $haystack, $strict = false)</h4>
-				<p>The <strong>in_array_recursive</strong> method checks wether a value is in an array recursively.</p>
+				<p><strong>in_array_recursive</strong> method checks wether a value is in an array recursively.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1830,13 +1828,13 @@ Array
 							<pre class="php"><code>$arr = array('one' => 1, 2, 3, array(56), 87);
 
 echo Arr::in_array_recursive('56', $arr);
-// Result: true
+// 実行結果: true
 
 echo Arr::in_array_recursive('87', $arr, true);
-// Result: false
+// 実行結果: false
 
 echo Arr::in_array_recursive(87, $arr, true);
-// Result: true</code></pre>
+// 実行結果: true</code></pre>
 						</td>
 					</tr>
 					</tbody>
@@ -1844,7 +1842,7 @@ echo Arr::in_array_recursive(87, $arr, true);
 			</article>
 			<article>
 				<h4 id="method_merge" class="method">merge($array)</h4>
-				<p>The <strong>merge</strong> method merges 2 arrays recursively, differs in 2 important ways from array_merge_recursive(): <br />
+				<p><strong>merge</strong> method merges 2 arrays recursively, differs in 2 important ways from array_merge_recursive(): <br />
 				- When there's 2 different values and not both arrays, the latter value overwrites the earlier
 	 			  instead of merging both into an array<br />
 	 			- Numeric keys that don't conflict aren't changed, only when a numeric key already exists is the
@@ -1906,7 +1904,7 @@ $arr2 = array(
 );
 
 print_r( Arr::merge($arr1, $arr2) );
-// Result:
+// 実行結果:
 Array
 (
 	[one] => 1
@@ -1934,7 +1932,7 @@ Array
 
 			<article>
 				<h4 id="function_in_arrayi" class="method" data-class="">in_arrayi($needle, $haystack)</h4>
-				<p>The <strong>in_arrayi</strong> function is a case-insensitive version of in_array.</p>
+				<p><strong>in_arrayi</strong> function is a case-insensitive version of in_array.</p>
 				<table class="method">
 					<tbody>
 					<tr>
@@ -1970,10 +1968,10 @@ Array
 						<th>例</th>
 						<td>
 							<pre class="php"><code>echo in_arrayi('This', array('something','tHis'));
-// Result: true
+// 実行結果: true
 
 echo in_arrayi('Thi', array('something','tHis'));
-// Result: false</code></pre>
+// 実行結果: false</code></pre>
 						</td>
 					</tr>
 					</tbody>
