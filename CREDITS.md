@@ -11,3 +11,4 @@
 * Mamoru Otsuka <https://github.com/mp-php>
 * Makoto Taniguchi <https://github.com/h2ospace>
 * Mizuki Yamanaka <https://github.com/charlesvineyard>
+* Sohei Iwahori <https://github.com/egmc>
