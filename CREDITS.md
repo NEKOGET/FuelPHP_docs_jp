@@ -3,6 +3,7 @@
 ## Version 1.6
 
 * Kenji Suzuki <https://github.com/kenjis>
+* Hitoshi Asano <https://github.com/orcaaoshi>
 
 ## Version 1.5
 
