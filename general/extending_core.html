@@ -79,14 +79,14 @@
 
 				<pre><code>Autoloader::add_classes(array(
 	// ここにオーバーライドしたいクラスを追加します
-	// Example: 'View' => APPPATH.'classes/view.php',
+	// 例: 'View' => APPPATH.'classes/view.php',
 ));</code></pre>
 
 				<p>下記のように、コメントで説明されている通りにLangクラスを追加します。</p>
 
 				<pre class="php"><code>Autoloader::add_classes(array(
 	// ここにオーバーライドしたいクラスを追加します
-	// Example: 'View' => APPPATH.'classes/view.php',
+	// 例: 'View' => APPPATH.'classes/view.php',
 	'Lang' => APPPATH.'classes/lang.php',
 ));</code></pre>
 
@@ -156,10 +156,10 @@ Autoloader::add_classes(array(
 				</ul>
 
 				<h4>Autoloader</h4>
-				<p>The Autoloader class is a special case, you can only extend it once as <code>Autoloader</code> and
-					have it used. After extending it you have to require it manually in the <kbd>app/bootstrap.php</kbd>
-					file after the original <code>Fuel\Core\Autoloader</code>, don't forget to remove the line that
-					aliases the core class to global.</p>
+				<p>Autoloader クラスは特別なケースで、<code>Autoloader</code> として一度だけ拡張でき、使用できます。
+					拡張した後は、手動で <kbd>app/bootstrap.php</kbd> ファイルの中で、オリジナルの <code>Fuel\Core\Autoloader</code> の後に
+					require しなければいけません。
+					コアクラスをグローバルにエイリアスする行を忘れずに削除してください。</p>
 			</article>
 
 		</div>
