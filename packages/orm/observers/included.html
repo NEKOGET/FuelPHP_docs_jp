@@ -105,16 +105,16 @@ protected static $_observers = array(
 				<h4 id="os_updated">Observer_UpdatedAt</h4>
 
 				<p>このオブザーバーは <kbd>before_save</kbd>の時に機能します。
-                                    あなたのモデルが <kbd>updated_at</kbd>プロパティがあると想定し、保存するとき(もしくは最初に）、
-                                    そのプロパティはUnixタイムスタンプが設定されます。</p>
+                                    あなたのモデルが <kbd>updated_at</kbd> プロパティがあると想定し、保存するとき (もしくは最初に）、
+                                    そのプロパティは Unix タイムスタンプが設定されます。</p>
 
-				<pre class="php"><code>// オブザーバを追加します。
+				<pre class="php"><code>// Don't use this, it will make it run twice!
 protected static $_observers = array('Orm\\Observer_UpdatedAt');
 
 // 設定追加:
-// - before_saveのみで実行する必要あり
-// - mysqlのタイムスタンプを使用（デフォルトではUNIXタイムスタンプを使用しています）
-// - "updated_at"の代わりに、"updated"を使用
+// - before_save のみで実行する必要あり
+// - mysql のタイムスタンプを使用（デフォルトでは UNIX タイムスタンプを使用しています）
+// - "updated_at" の代わりに、"updated" を使用
 protected static $_observers = array(
 	'Orm\\Observer_UpdatedAt' => array(
 		'events' => array('before_save'),
@@ -122,6 +122,11 @@ protected static $_observers = array(
 		'property' => 'updated',
 	),
 );</code></pre>
+				<p>
+					When you use <kbd>before_save</kbd>, the updatedAt column will be updated on both an insert and an update.
+					When you use <kbd>before_update</kbd>, the updatedAt column will be updated only on updates.
+				</p>
+
 
 				<h4 id="os_validation">Observer_Validation</h4>
 

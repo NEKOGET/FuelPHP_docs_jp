@@ -158,6 +158,9 @@ ViewModel::forge('index', 'other_method');</code></pre>
 				<code>__toString()</code> マジックメソッドを持たなくてはなりません。
 				ビューの名前は <code>$this->_view</code> プロパティから取得できます。</p>
 
+				<h4 id="access_to_view">Accessing the view</h4>
+				<p>You can use the <code>get_view()</code> method to get access to the View object from outside the Viewmodel.</p>
+
 				<h4>他の名前空間やプレフィックス View_ なしでのビューモデルの使用</h4>
 
 				<p>これらを使用する場合、名前空間を含む、完全なクラス名で <code>forge()</code> を使う必要があります。

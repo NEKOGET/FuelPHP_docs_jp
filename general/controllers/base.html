@@ -165,8 +165,9 @@ class Example extends Controller
 			<h4 id="returning_results">結果を返す</h4>
 
 			<p>
-				コントローラアクションは Response オブジェクトを返さなければ<strong>なりません</strong>。オプションで、特別な HTTP ヘッダや、
-				カスタムの HTTP ステータスコードを指定できます ("200 OK" 以外のコード)。
+				理想的には、コントローラアクションは Response オブジェクトを返すべきです。オプションで、特別な HTTP ヘッダや、
+				カスタムの HTTP ステータスコードを指定できます ("200 OK" 以外のコード)。もし、Respose オブジェクトを返さない場合、デフォルトの
+				<kbd>after()</kbd> メソッドがアクションの返り値を Response オブジェクトでラップします。
 			</p>
 
 			<p>
@@ -212,6 +213,10 @@ class Example extends Controller
 					このメソッドは、URL からメソッドが正常に呼ばれた <strong>後で</strong> 実行され、
 					メソッドが存在しない場合は実行されません。<a href="#response"><var>$response</var></a> パラメータが必要です。
 					after() メソッドは Response オブジェクトを返さねば <strong>なりません</strong>。
+				</p>
+				<p class="note">
+					If the <kbd>after()</kbd> method has to construct a Response object, it can use the <kbd>response_status</kbd> property of
+					the controller to set the HTTP status of the response. By default, this property contains "200" (OK).
 				</p>
 			</article>
 

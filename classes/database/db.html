@@ -53,7 +53,7 @@
 				<h4 class="method" id="method_query">query($sql, $type = null)</h4>
 				<p>
 					<strong>query</strong> メソッドは、新しい Database_Query_Builder オブジェクトを返します。
-					正確なオブジェクトは渡されたタイプに依存します。タイプが渡されない場合、初期値は DB::SELECT となり、
+					正確なオブジェクトは渡されたタイプに依存します。タイプが渡されない場合、SQL クエリが 'SELECT' で始まる場合は、DB::SELECT となり、
 					<a href="qb_select.html">Database_Query_Builder_Select</a> オブジェクトが返されます。
 				</p>
 				<table class="method">
@@ -99,9 +99,9 @@ $query = DB::query('SELECT * FROM `users`');
 					</tbody>
 				</table>
 				<p class="note">
-					SELECT タイプを使わないクエリの場合は正しいタイプを渡すことが重要です。データベースドライバは
-					タイプを異なる形で扱います。例えば、タイプを指定せずに INSERT 文を実行すると insert_id と
-					affected rows は返りません。もし SELECT 文ではないが結果セットを返さなければならないクエリが
+					正しいタイプを渡すことが重要です。データベースドライバは
+					タイプを異なる形で扱います。
+					もし SELECT 文ではないが結果セットを返さなければならないクエリが
 					あるときは、タイプに DB::SELECT を指定して結果が正しく返されていることを確認して下さい。
 				</p>
 			</article>
