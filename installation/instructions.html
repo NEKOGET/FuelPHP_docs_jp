@@ -51,10 +51,10 @@
 				Composerをあなたのマシンにインストールする方法は<a href="https://getcomposer.org/download/">こちらのページ</a>を参照してください。
 			</p>
 
-			<h2 id="command">Command Line Installation</h3>
-			<h3 id="command-oil">using Oil</h3>
+			<h2 id="command">コマンドラインからのインストール</h3>
+			<h3 id="command-oil">Oil を使用する</h3>
 
-			<p>Our quick installer is a stripped down interface for the Oil package.  It allows you to create a new project with one command.  You will also no longer need to use 'php' in your oil commands.</p>
+			<p>我々のクイックインストーラは Oil パッケージ用に書き下ろされたインターフェースです。これを使用すると 1つのコマンドで新しいプロジェクトを生成することができます。oil コマンドで <code class="cli">php</code> を使用する必要もありません。</p>
 
             <p>クイックインストーラをインストールするためには、シェルを開き次のコマンドを実行するだけです：</p>
 
@@ -76,9 +76,9 @@
 				Note: これは、必要なディレクトリを書き込み可能にするための <code class="cli">$ oil refine install</code> も実行します。
 				そして、Composer により定義された依存ライブラリを取得する <code class="cli">$ composer update</code> も実行します。
 			</p>
-		    <p class="note">This currently only works on *nix systems (Linux, OS X, Unix, etc).</p>
+			<p class="note">この方法は現在 *nix システム (Linux, OS X, Unix など) でのみ動作します。</p>
 
-			<h3 id="command-composer">using Composer</h3>
+			<h3 id="command-composer">Composer を使用する</h3>
 
 			<p>これはバーチャルホストのルートディレクトリに FuelPHP フレームワークをデフォルトインストールします。</p>
 
@@ -91,21 +91,21 @@ $ composer install --prefer-dist
 
 			<p>最後のドットを忘れないでください。さもないと、バーチャルホストのルートディレクトリに <strong>fuel</strong> というフォルダが作成されます!</p>
 
-			<p>Alternatively, you can use composer to install everything in one go:</p>
+			<p>別の方法として、Composer を使いすべてをインストールすることもできます:</p>
 <pre class="cli"><code>$ composer create-project fuel/fuel --prefer-dist .
 </code></pre>
 
 			<p>
-				The first method has the advantage that you install the part that will contain your application installed as a git repository. You can change
-				the origin of that repository to your own git server, so your application development is under version control.
+				最初の方法は、gitリポジトリとしてインストールされたアプリケーションを含めてインストールできる利点があります。
+				リポジトリを独自の git サーバー変更することができます。これにより、あなたのアプリケーション開発はバージョン管理下にあります。
 			</p>
 			<p>
-				The second method creates a complete package with all dependencies. If you want to add that to a git repository, you will also add all
-				dependencies to it. You would like to take this route if your target server on which you run production doesn't have the option to run
-				composer locally to download application dependencies.
+				2つ目の方法は、全ての依存関係を持つ完全なパッケージを作成します。もし、 git リポジトリに追加したい場合は、全ての依存関係をそれに追加します。
+				もし、全てのアプリケーションの依存関係をダウンロードするためにローカルで composer を実行する手段がない production をターゲットサーバとする場合は、
+				こちらを利用した方がよいでしょう。
 			</p>
 
-			<h4 id="from_github">Clone the latest development branch from github</h4>
+			<h4 id="from_github">GitHub から最新の開発ブランチを clone する</h4>
 
 <pre class="cli"><code>$ cd /where/ever/your/virtualhost/root/is
 $ git clone git://github.com/fuel/fuel.git -b 1.9/develop .
@@ -118,13 +118,13 @@ $ composer install
 <pre class="cli"><code>$ composer create-project fuel/fuel:dev-1.9/develop --prefer-source .
 </code></pre>
 
-			<p>Both will do exactlt the same, and install the latest development version as local git repository clones.</p>
+			<p>どちらも全く同じことを行い、ローカルの git リポジトリにクローンとして最新の開発版をインストールします。</p>
 
 			<h3 id="from_zip">Zip ファイルをダウンロードする</h3>
 
 			<p>
-				If for some reason you can't have access to composer, you can also <a href="download.html">Download the Fuel Framework</a> in a single ZIP file.
-				It contains exactly the same as the command composer <code class="cli">create-project fuel/fuel --prefer-dist .</code> would produce.
+				何らかの理由で、 Composer にアクセスできない場合は、 Zip ファイルで<a href="download.html">Fuel Framework をダウンロード</a>することができます。
+				これは、 Composer コマンド <code class="cli">create-project fuel/fuel --prefer-dist .</code> が生成するものと全く同じものを含んでいます。
 			</p>
 
 			<h2 id="structure">Altering the default installation</h2>
