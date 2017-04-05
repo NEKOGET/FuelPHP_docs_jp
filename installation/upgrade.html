@@ -55,26 +55,26 @@
 			</p>
 			<h4 id="plain">単に zip ファイルをダウンロードしてインストールした場合</h4>
 			<p>
-				If you have taken this route, it depends from which version you are upgrading.
+				この手段を選択した場合、アップグレードするバージョンによって異なります。
 			</p>
 			<p>
-				If you are upgrading from 1.7.1 or newer, chances are you can upgrade using composer by
-				manually updating the <code>oil</code> and <code>public/index.php</code> files, and the <code>composer.json</code> file,
-				either from the fuel/fuel repository or from the latest zipfile. After that, you can run
+				1.7.1 以降のバージョンからアップグレードする場合は、 fuel/fuel リポジトリまたは最新の zip ファイルのいずれかから
+				<code>oil</code> 、<code>public/index.php</code> 、 <code>composer.json</code> を手動で更新することで
+				composer を利用してアップグレードすることができます。
 <pre class="cli"><code>$ php composer.phar self-update
 $ php composer.phar update --prefer-dist
 </code></pre>
-				from the root of your application folder structure.
+				アプリケーションのフォルダ構造のルートから上記を実行することができます。
 			</p>
 			<p>
-				If you have to upgrade from an earlier version, you must manually remove the following folders:
+				1.7.1 以前のバージョンからアップグレードしなければならない場合は、以下のフォルダを手動で削除する必要があります:
 <pre class="cli"><code>$ rm -rf fuel/core/ docs/
 $ rm -rf fuel/packages/auth/ fuel/packages/email/ fuel/packages/oil/
 $ rm -rf fuel/packages/orm/ fuel/packages/parser/ fuel/vendor/
 </code></pre>
-				before executing the composer update command as described above. If you are on a recent version but get
-				composer errors when you attempt to directly update using composer, removing these folders will also
-				allow you to upgrade again.
+				もし、最近のバージョンを使用していて、 composer を利用して直接アップデートして composer エラーが発生した場合は、
+				上記のような composer のアップデートコマンドを実行する前にこれらのフォルダを削除すると
+				再度アップグレードすることができます。
 			</p>
 
 			<h4 id="own_git">プロジェクトがフレームワークも含んだ独自のリポジトリを持っている場合</h4>
@@ -91,7 +91,7 @@ $ rm -rf fuel/packages/orm/ fuel/packages/parser/ fuel/vendor/
 				fuel/fuel リポジトリから clone を行うことで開始していた場合は、上流リポジトリとして追加して、新バージョンの master ブランチを pull して下さい。
 				マージに関する問題に対処したら、 'git submodule update' コマンドを実行してサブモジュールをリリースバージョンに更新します。
 			</p>
-			<p class="note"><strong>Note</strong> that it is strongly recommended to remove the submodules, and use composer to update the framework components!</p>
+			<p class="note"><strong>Note</strong> サブモジュールを削除し、composer を使用してフレームワークコンポーネントをアップデートすることを強くお勧めします！</p>
 
 			<h4 id="git_with_git">プロジェクトが独自のリポジトリを持っているが、FuelPHP コンポーネントには別のリポジトリを持っている場合</h4>
 			<p>
@@ -130,14 +130,14 @@ $ rm -rf fuel/packages/orm/ fuel/packages/parser/ fuel/vendor/
 
 			<h4 id="app_others">含まれるその他のファイル</h4>
 			<p>
-                Other files may need upgrading. If you haven't changed them, just replace them with the new version, to make sure 
-                you don't run into issues.</p>
+                その他のファイルをアップグレードする必要があるかもしれません。
+                もしそれらを変更していない場合は、新しいバージョンに置き換えて問題にぶつからないようにしてください。</p>
 
-                <p><code>oil</code> - the 'Oil' bootstrap script, <code>.htaccess</code> and files needed by PHPUnit.</p>
-                <p> <code>app/config/config.php</code> - you may see an <em>"There is no security.output_filter defined"</em> error.<br/>
-                Keep your current config file, but copy over the "security" array from the latest version.</p>
-                <p> <code>app/bootstrap.php</code> - if you still have "Load in the Autoloader" (lines 3-6) these should be removed.<br/>
-                This is the cause of the <em>"Cannot declare class Fuel\Core\Autoloader, because the name is already in use"</em> error.</p>
+                <p><code>oil</code> - 'Oil' bootstrap スクリプト、 <code>.htaccess</code> と PHPUnit に必要なファイル</p>
+                <p> <code>app/config/config.php</code> - <em>"There is no security.output_filter defined"</em> というエラーが表示されることがあります。<br/>
+                現在の config ファイルに最新版から "security" 配列部分をコピーして上書きしてください。</p>
+                <p> <code>app/bootstrap.php</code> - "Load in the Autoloader" (lines 3-6) がまだ記述されている場合は、それらを削除する必要があります。<br/>
+                これは <em>"Cannot declare class Fuel\Core\Autoloader, because the name is already in use"</em> というエラーの原因です。</p>
 
 			<h3 id="tips">上流リポジトリを使う</h3>
 
