@@ -55,26 +55,26 @@
 			</p>
 			<h4 id="plain">単に zip ファイルをダウンロードしてインストールした場合</h4>
 			<p>
-				If you have taken this route, it depends from which version you are upgrading.
+				この場合はアップグレード対象のバージョンによってやり方が異なります。
 			</p>
 			<p>
-				If you are upgrading from 1.7.1 or newer, chances are you can upgrade using composer by
-				manually updating the <code>oil</code> and <code>public/index.php</code> files, and the <code>composer.json</code> file,
-				either from the fuel/fuel repository or from the latest zipfile. After that, you can run
+				インストルされているバージョンが1.7.1と同じかより新しい場合は、
+				手動で composer コマンドをを用いることで <code>oil</code> コマンドと <code>public/index.php</code> ファイルを、
+				fuel/fuel リポジトリーまたは最新版のzipファイルをからアップデートできます。そのためには
 <pre class="cli"><code>$ php composer.phar self-update
 $ php composer.phar update --prefer-dist
 </code></pre>
-				from the root of your application folder structure.
+				上記コマンドをあなたのアプリケーションのトップディレクトリで実行します。
 			</p>
 			<p>
-				If you have to upgrade from an earlier version, you must manually remove the following folders:
+				それよりも古いバージョンからのアップグレードの場合は、以下のディレクトリを手動で削除する必要があります:
 <pre class="cli"><code>$ rm -rf fuel/core/ docs/
 $ rm -rf fuel/packages/auth/ fuel/packages/email/ fuel/packages/oil/
 $ rm -rf fuel/packages/orm/ fuel/packages/parser/ fuel/vendor/
 </code></pre>
-				before executing the composer update command as described above. If you are on a recent version but get
-				composer errors when you attempt to directly update using composer, removing these folders will also
-				allow you to upgrade again.
+				composer update を実行する前に、上記を実行して下さい。
+				もし最近のバージョンから composer で直接アップグレードしようとしてエラーになった場合も、
+				これらのディレクトリを一度削除してから再度試してみて下さい。
 			</p>
 
 			<h4 id="own_git">プロジェクトがフレームワークも含んだ独自のリポジトリを持っている場合</h4>
@@ -130,14 +130,14 @@ $ rm -rf fuel/packages/orm/ fuel/packages/parser/ fuel/vendor/
 
 			<h4 id="app_others">含まれるその他のファイル</h4>
 			<p>
-                Other files may need upgrading. If you haven't changed them, just replace them with the new version, to make sure 
-                you don't run into issues.</p>
+				その他にもアップグレードが必要なファイルがあります。
+				もし以下のファイルに変更を加えてなければ、問題を回避するために単にそれらを新しバージョンに置き換えて下さい。</p>
 
-                <p><code>oil</code> - the 'Oil' bootstrap script, <code>.htaccess</code> and files needed by PHPUnit.</p>
-                <p> <code>app/config/config.php</code> - you may see an <em>"There is no security.output_filter defined"</em> error.<br/>
-                Keep your current config file, but copy over the "security" array from the latest version.</p>
-                <p> <code>app/bootstrap.php</code> - if you still have "Load in the Autoloader" (lines 3-6) these should be removed.<br/>
-                This is the cause of the <em>"Cannot declare class Fuel\Core\Autoloader, because the name is already in use"</em> error.</p>
+                <p><code>oil</code> - 'Oil' コマンドスクリプト、 <code>.htaccess</code> それに PHPUnit に必要なファイル。</p>
+                <p> <code>app/config/config.php</code> - <em>"There is no security.output_filter defined"</em> エラーが発生する場合。<br/>
+		現在の config ファイルを保持しながら、"security" 設定の配列のみ最新の config ファイルからコピーして下さい。</p>
+                <p> <code>app/bootstrap.php</code> - ファイル中に "Load in the Autoloader" (3-5行目) がある場合はそれらを削除します。<br/>
+		これは <em>"Cannot declare class Fuel\Core\Autoloader, because the name is already in use"</em> エラーが出る原因です。</p>
 
 			<h3 id="tips">上流リポジトリを使う</h3>
 
